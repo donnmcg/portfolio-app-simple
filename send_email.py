@@ -8,10 +8,10 @@ def send_email(message):
     port = 465  # standard port
     username = "donnacha.mcgrath2@gmail.com"
     # Note: password is obtained from your gmail account. Security - two factor - app passwords.
-    # try:
-    password = os.getenv("PASSWORD")  # access the environment variable password is in.
-    # except:
-    #     password = st.secrets["PASSWORD"]
+    try:
+        password = os.getenv("PASSWORD")  # access the environment variable password is in.
+    except AttributeError:
+        password = st.secrets["PASSWORD"]
     receiver = "donnacha.mcgrath2@gmail.com"
     context = ssl.create_default_context()  # variable holds context for sending emails securely.
 
